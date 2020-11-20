@@ -1,0 +1,10 @@
+input[type=search] {
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+input:focus {
+   /* outline-color: white; */
+   outline: none !important;
+   border-bottom: 1px solid black;
+}

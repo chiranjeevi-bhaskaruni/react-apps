@@ -1,0 +1,32 @@
+{
+      "clients": [
+        {
+          "name": "Verizon",
+          "employer": "Idexcel"
+        },
+        {
+          "name": "Tracfone",
+          "employer": "Idexcel"
+        },
+        {
+          "name": "Morgan Stanley",
+          "employer": "Capgemini"
+        },
+        {
+          "name": "TUI",
+          "employer": "Sonata"
+        },
+        {
+          "name": "BNP Paribas",
+          "employer": "Infrasoft"
+        },
+        {
+          "name": "RMN Infotech",
+          "employer": "RMN Infotech"
+        },
+        {
+          "name": "Ledning Solutions",
+          "employer": "Ledning Solutions"
+        }
+      ]
+    }

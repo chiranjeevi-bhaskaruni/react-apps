@@ -1,0 +1,17 @@
+.Client {
+    border: 1px solid rgba(128, 128, 128, 0.516);
+    padding: 0 10px 10px 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer; 
+    width: 20%;
+}
+
+.Client:hover {
+    box-shadow: 2px 2px 2px rgb(165, 131, 131);
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
