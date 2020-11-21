@@ -1,0 +1,14 @@
+.CollectionPreview {
+    // padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    .CollectionTitle {
+        // padding-left: 30px;
+        margin-bottom: 25px;
+    }
+    .CollectionItems {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,28 @@
+.CollectionItem {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 22%;
+    // align-items: center;
+    .BackgroundImage{
+        width: 100%;
+        height: 95%;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5px;
+    }
+    .CollectionFooter {
+        height: 5%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 18px;
+        .name {
+            width: 90%;
+        }
+
+        .price {
+            width: 10%;
+        }
+    }
+}
