@@ -10,8 +10,8 @@ const App =  () => {
         <AppsNav />
         <Switch>
           {/* It passes history, match and location as props */}
-          <Route exact path="/ecom" component={EcomApp} />
-          <Route exact path="/ecom/shop" component={ShopPage} />
+          <Route path="/ecom" component={EcomApp} />
+          
           {/* It doesn't pass history, match and location as props */}
           <Route path="/clients">
             <ClientSearch />

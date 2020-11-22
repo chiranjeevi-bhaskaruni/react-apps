@@ -1,0 +1,23 @@
+.Header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  .LogoContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  // .Logo
+  .ShopMenu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .ShopMenuItem {
+    padding-left: 20px;
+  }
+  a {
+      color: black;
+  }
+}
