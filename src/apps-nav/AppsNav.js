@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { auth } from '../firebase/firebase.utils';
 import './AppsNav.scss'
-const AppsNav = () => {
+const AppsNav = ({user}) => {
+    if(user) {
+
+    }
     return (
       <nav>
         <ul>
@@ -13,6 +17,14 @@ const AppsNav = () => {
           </li>
           <li>
             <Link to="/clients">Client Search</Link>
+          </li>
+          <li>
+          {
+            user ?
+            <div onClick={() => auth.signOut()}>SignOut</div>
+            :
+            <Link to="/signin">Sign In</Link>
+          }
           </li>
         </ul>
       </nav>

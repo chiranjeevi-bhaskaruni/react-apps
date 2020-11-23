@@ -1,0 +1,30 @@
+button {
+        padding: 10px 20px;
+        min-width: 150px;
+        background-color: black;
+        color: grey;
+        font-weight: 700;
+        font-size: larger;
+        font-family: 'Open Sans Condensed';
+        border: 1px solid grey;
+    }
+
+    button:hover {
+         background-color: white;
+         color: black;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    .GoogleSingIn {
+        background-color: #4285f4;
+        color: white;
+    }
+
+    .GoogleSingIn:hover {
+        background-color: #357ae8;
+        color: white;
+    }
+    

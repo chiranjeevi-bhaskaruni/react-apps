@@ -1,0 +1,13 @@
+input {
+        border: 0;
+        border-bottom: 1px solid grey;
+        padding: 10px 0;
+        font-size: large;
+        font-family: 'Open Sans Condensed'
+    }
+
+    input[type=password]:focus {
+        letter-spacing: 0.3rem;
+    }
+    
+   
