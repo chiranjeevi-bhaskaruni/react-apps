@@ -4,16 +4,26 @@ import EcomApp from './ecom/EcomApp';
 import { Route, Switch } from "react-router-dom";
 import AppsNav from './apps-nav/AppsNav';
 import SignInSignOut from './sign-in-sign-out/SignInSignOut';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUser } from './firebase/firebase.utils';
 export class App extends Component {
   state = {
     currentUSer: null,
   };
   unsubscribeUser = null;
   componentDidMount() {
-    this.unsubscribeUser = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log("EcomApp", this.state.currentUser);
+    this.unsubscribeUser = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth) {
+        const userRef = await createUser(userAuth);
+        userRef.onSnapshot(snapshot => {
+          this.setState({currentUser: {
+            id: snapshot.id,
+            ...snapshot.data()
+          }}, () => {
+            console.log("Current user", this.state.currentUser)
+          })
+        })
+      }
+      this.setState({currentUser: userAuth})
     });
   }
   componentWillUnmount() {
