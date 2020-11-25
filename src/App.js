@@ -5,25 +5,25 @@ import { Route, Switch } from "react-router-dom";
 import AppsNav from './apps-nav/AppsNav';
 import SignInSignOut from './sign-in-sign-out/SignInSignOut';
 import { auth, createUser } from './firebase/firebase.utils';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user-actions';
 export class App extends Component {
-  state = {
-    currentUSer: null,
-  };
+ 
   unsubscribeUser = null;
   componentDidMount() {
+
+    const { setCurrentUser } = this.props;
     this.unsubscribeUser = auth.onAuthStateChanged(async userAuth => {
       if(userAuth) {
         const userRef = await createUser(userAuth);
         userRef.onSnapshot(snapshot => {
-          this.setState({currentUser: {
+          setCurrentUser( {
             id: snapshot.id,
             ...snapshot.data()
-          }}, () => {
-            console.log("Current user", this.state.currentUser)
           })
         })
       }
-      this.setState({currentUser: userAuth})
+      setCurrentUser(userAuth);
     });
   }
   componentWillUnmount() {
@@ -33,7 +33,7 @@ export class App extends Component {
   render() {
     return (
       <>
-        <AppsNav user={this.state.currentUser}/>
+        <AppsNav/>
         <Switch>
           <Route exact path="/" />
           {/* It passes history, match and location as props */}
@@ -52,4 +52,8 @@ export class App extends Component {
   }
 }
 
-export default App;
+const mapDispatcherToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(null, mapDispatcherToProps)(App);

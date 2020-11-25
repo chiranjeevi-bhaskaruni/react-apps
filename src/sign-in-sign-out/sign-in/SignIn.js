@@ -21,10 +21,10 @@ export class SignIn extends Component {
     const {email, password} = this.state;
     try{
       await auth.signInWithEmailAndPassword(email, password);
-      this.state = {
+      this.setState({
         email: "",
         password: "",
-      };
+      });
     } catch (err) {
       console.log(err)
     }
