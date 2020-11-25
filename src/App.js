@@ -31,9 +31,10 @@ export class App extends Component {
     console.log("EcomApp", this.state.currentUser);
   }
   render() {
+    let { currentUser } = this.props;
     return (
       <>
-        <AppsNav/>
+        <AppsNav />
         <Switch>
           <Route exact path="/" />
           {/* It passes history, match and location as props */}
@@ -43,17 +44,24 @@ export class App extends Component {
           <Route path="/clients">
             <ClientSearch />
           </Route>
-          <Route path="/signin">
-            <SignInSignOut />
-          </Route>
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              currentUser ? <Route exact path="/" /> : <SignInSignOut />
+            }
+          ></Route>
         </Switch>
       </>
     );
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 const mapDispatcherToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatcherToProps)(App);
+export default connect(mapStateToProps, mapDispatcherToProps)(App);
