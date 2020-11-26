@@ -6,10 +6,10 @@ export const CollectionPreview = ({items, title}) => {
       <div className="CollectionPreview">
         <h2 className="CollectionTitle">{title.toUpperCase()}</h2>
         <div className="CollectionItems">
-          {items
-            .filter(({ id }) => id <= 4)
-            .map(({ id, ...itemProps }) => (
-              <CollectionItem key={id} {...itemProps} />
+          {items.slice(0,4)
+            // .filter(({ id }) => items.length <= 4)
+            .map(item => (
+              <CollectionItem key={item.id} item={item} />
             ))}
         </div>
       </div>

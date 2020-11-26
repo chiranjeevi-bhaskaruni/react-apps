@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./ClientSearch.css";
-import { Icon, Intent } from "@blueprintjs/core";
 import Clients from "./clients/Clients";
 import SearchClient from "./search/SearchClient";
 

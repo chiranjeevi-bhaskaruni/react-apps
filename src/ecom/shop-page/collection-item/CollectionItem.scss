@@ -1,28 +1,61 @@
 .CollectionItem {
-    display: flex;
-    flex-direction: column;
-    height: 350px;
-    width: 22%;
-    // align-items: center;
-    .BackgroundImage{
-        width: 100%;
-        height: 95%;
-        background-size: cover;
-        background-position: center;
-        margin-bottom: 5px;
-    }
-    .CollectionFooter {
-        height: 5%;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        font-size: 18px;
-        .name {
-            width: 90%;
-        }
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 22%;
+  // align-items: center;
+  position: relative;
+  &:hover {
+    cursor: pointer;
 
-        .price {
-            width: 10%;
-        }
+    .AddToCart {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      &.AddToCartIcon {
+        display: flex;
+        // text-align: center;
+        // height: 100%;
+        opacity: 0.6;
+      }
+      .AddToCartTitle {
+        color: white;
+      }
     }
+
+    .BackgroundImage {
+      opacity: 0.6;
+    }
+  }
+  .BackgroundImage {
+    width: 100%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+  }
+  .CollectionFooter {
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+    .name {
+      width: 90%;
+    }
+
+    .price {
+      width: 10%;
+    }
+  }
+
+  .AddToCart {
+    display: none;
+  }
 }

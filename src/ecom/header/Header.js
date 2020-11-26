@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.scss";
 import { Link, useRouteMatch } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
@@ -6,7 +6,7 @@ import CartIcon from "../cart-icon/CartIcon";
 import CartDropdown from "../cart-dropdown/CartDropdown";
 import { connect } from "react-redux";
 import { showHideCart } from "../../redux/cart/cart-actions";
-const Header = ({ showCartDropdown, setCartDropdown }) => {
+const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   // let [showCartDropdown, setShowCartDropdown] = useState(false);
   let { url } = useRouteMatch();
   return (
@@ -21,15 +21,19 @@ const Header = ({ showCartDropdown, setCartDropdown }) => {
         <Link className="ShopMenuItem" to={`${url}/contact`}>
           CONTACT
         </Link>
-        <CartIcon showCartDropdown={() => setCartDropdown()} />
+        <CartIcon
+          itemCount={itemCount}
+          showCartDropdown={() => setCartDropdown()}
+        />
       </div>
       {showCartDropdown ? <CartDropdown /> : null}
     </div>
   );
 };
 
-const mapStateToProps = ({ cart: { showCartDropdown } }) => ({
+const mapStateToProps = ({ cart: { showCartDropdown, cartItems } }) => ({
   showCartDropdown,
+  itemCount: cartItems.reduce((acc,cartItem) => acc + cartItem.quantity, 0 )
 });
 const mapDispatchToProps = (dispatch) => ({
   setCartDropdown: () => dispatch(showHideCart()),

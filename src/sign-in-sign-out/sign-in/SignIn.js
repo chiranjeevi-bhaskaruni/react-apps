@@ -3,7 +3,7 @@ import CustomButton from '../../common/custom-button/CustomButton';
 import FormInput from '../../common/form-input/FormInput';
 import { signInWithGoogle } from '../../firebase/firebase.utils';
 import './SignIn.scss';
-import { auth, createUser } from "../../firebase/firebase.utils";
+import { auth } from "../../firebase/firebase.utils";
 export class SignIn extends Component {
   state = {
     email: "",

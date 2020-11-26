@@ -3,7 +3,6 @@ import SHOP_DATA from '../../shopping-data';
 import { CollectionPreview } from './collection-preview/CollectionPreview';
 import './ShopPage.scss';
 export class ShopPage extends Component {
-
     state = {
         collections: SHOP_DATA
     }
