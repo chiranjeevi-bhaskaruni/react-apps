@@ -6,6 +6,7 @@ import CartIcon from "../cart-icon/CartIcon";
 import CartDropdown from "../cart-dropdown/CartDropdown";
 import { connect } from "react-redux";
 import { showHideCart } from "../../redux/cart/cart-actions";
+import { cartItemsSelectorCount, showCartSelector } from "../../redux/cart/cart-selectors";
 const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   // let [showCartDropdown, setShowCartDropdown] = useState(false);
   let { url } = useRouteMatch();
@@ -31,9 +32,9 @@ const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { showCartDropdown, cartItems } }) => ({
-  showCartDropdown,
-  itemCount: cartItems.reduce((acc,cartItem) => acc + cartItem.quantity, 0 )
+const mapStateToProps = (state) => ({
+  showCartDropdown: showCartSelector(state),
+  itemCount: cartItemsSelectorCount(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   setCartDropdown: () => dispatch(showHideCart()),
