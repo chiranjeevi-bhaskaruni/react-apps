@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import Checkout from './checkout/Checkout';
 import './EcomApp.scss';
 import Header from './header/Header';
 import Menu from './menu/Menu';
@@ -13,6 +14,7 @@ const EcomApp = () => {
           <Route exact path={path} component={Menu} />
           <Route path={`${path}/shop`} component={ShopPage} />
           <Route path={`${path}/contact`} component={ContactPage} />
+          <Route exact path={`${path}/checkout`} component={Checkout} />
         </Switch>
       </div>
     );

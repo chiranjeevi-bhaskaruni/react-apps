@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import CartItem from './cart-item/CartItem';
 import './CartItems.scss'
 const CartItems = ({ cartItems }) => {
-  console.log("cartItems", cartItems);
   return (
     <div className="CartItems">
       {cartItems.map(({id, ...otherProps}) => (

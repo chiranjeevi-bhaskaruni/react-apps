@@ -12,6 +12,10 @@ export const showCartSelector = createSelector(
   (cart) => cart.showCartDropdown
 );
 
+export const cartTotalAmount = createSelector([cartItemsSelector], (cartItems) =>
+  cartItems.reduce((acc, cartItem) => acc + cartItem.quantity * cartItem.price, 0)
+);
+
 export const cartItemsSelectorCount = createSelector(
   [cartItemsSelector],
   (cartItems) => cartItems.reduce((acc, cartItem) => acc + cartItem.quantity, 0)

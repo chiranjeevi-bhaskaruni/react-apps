@@ -28,7 +28,6 @@ export class App extends Component {
   }
   componentWillUnmount() {
     this.unsubscribeUser();
-    console.log("EcomApp", this.state.currentUser);
   }
   render() {
     let { currentUser } = this.props;
