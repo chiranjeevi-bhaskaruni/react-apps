@@ -32,7 +32,7 @@ const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+ const mapStateToProps = (state) => ({
   showCartDropdown: showCartSelector(state),
   itemCount: cartItemsSelectorCount(state),
 });

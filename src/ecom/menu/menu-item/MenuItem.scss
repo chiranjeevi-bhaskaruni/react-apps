@@ -22,9 +22,9 @@
     }
   }
 
-  &.large {
-    height: 380px;
-  }
+  // &.large {
+  //   height: 380px;
+  // }
 
   &:first-child {
     margin-right: 7.5px;
@@ -65,4 +65,12 @@
       font-size: 16px;
     }
   }
+}
+
+$breakpoint-md: 670px;
+@media (min-width: $breakpoint-md) {
+  .large {
+      height: 380px;
+      color: red;
+    }
 }

@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { showHideCart } from "../../redux/cart/cart-actions";
 import {
   cartItemsSelector,
   cartTotalAmount,
 } from "../../redux/cart/cart-selectors";
-import CheckoutItems from "./checkout-items/CheckoutItems";
+import CheckoutItem from "./checkout-item/CheckoutItem";
 import "./Checkout.scss";
-const Checkout = ({ cartItems, total, dispatch }) => {
-    dispatch(showHideCart());
+const Checkout = ({ cartItems, total }) => {
   return (
     <div className="CheckoutPage">
       <div className="CheckoutHeader">
@@ -29,9 +27,9 @@ const Checkout = ({ cartItems, total, dispatch }) => {
           <span>Remove</span>
         </div>
       </div>
-      {cartItems.map(item => (
-          <CheckoutItems key={item.id} item={item} />
-      ))}
+       {cartItems.map(item => (
+          <CheckoutItem key={item.id} item={item} />
+     ))}
       <div className="Total">Total: ${total}</div>
     </div>
   );

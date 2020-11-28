@@ -18,6 +18,16 @@ const CartReducer = (state = initialState, action) => {
               ...state,
               cartItems: addItemToCart(state.cartItems, action.payload)
             }
+        case CartActionTypes.CLEAR_ITEM:
+          return {
+            ...state,
+            cartItems: state.cartItems.filter((item) => item.id !== action.payload.id),
+          };
+        case CartActionTypes.REMOVE_ITEM:
+          return {
+            ...state,
+            cartItems: removeItemFromCart(state.cartItems, action.payload),
+          };
         default:
             return state;
     }
@@ -33,5 +43,19 @@ const addItemToCart = (cartItems, addToCartItem) => {
   }
   return [...cartItems, { ...addToCartItem, quantity: 1 }];
 }
+
+const removeItemFromCart = (cartItems, removeCartItem) => {
+  let itemFound = cartItems.find(
+    (cartItem) => cartItem.id === removeCartItem.id
+  );
+  if (itemFound.quantity === 1) {
+    return cartItems.filter((item) => item.id !== removeCartItem.id)
+  }
+  return cartItems.map((cartItem) =>
+    cartItem.id === removeCartItem.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
+  );
+};
 
 export default CartReducer;
