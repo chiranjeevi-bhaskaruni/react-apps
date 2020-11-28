@@ -8,11 +8,11 @@ export const shopCollectionsSelector = createSelector(
   (shop) => shop.collections
 );
 
-export const categorySelector = memoize((category) =>
-  createSelector([shopCollectionsSelector], (collections) =>
-    collections.find((collection) => {
-      console.log("categorySelector", collection, category);
-      return collection.title.toLowerCase() === category.toLowerCase();
-    })
-  )
+export const shopCollectionsPreviewSelector = createSelector(
+  [shopCollectionsSelector],
+  (collections) => Object.keys(collections).map(key => collections[key])
 );
+
+export const categorySelector = memoize((category) =>
+  createSelector([shopCollectionsSelector], collections => collections[category]
+));
