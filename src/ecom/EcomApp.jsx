@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Checkout from './checkout/Checkout';
+import CollectionsPage from './collections/CollectionsPage';
 import './EcomApp.scss';
 import Header from './header/Header';
 import Menu from './menu/Menu';
@@ -13,7 +14,7 @@ const EcomApp = () => {
         <Switch>
           <Route exact path={path} component={Menu} />
           <Route path={`${path}/shop`} component={ShopPage} />
-          <Route path={`${path}/contact`} component={ContactPage} />
+          <Route exact path={`${path}/contact`} component={ContactPage} />
           <Route exact path={`${path}/checkout`} component={Checkout} />
         </Switch>
       </div>
@@ -22,7 +23,7 @@ const EcomApp = () => {
 
 const ContactPage = () => {
   return (
-    <div>Contact Page</div>
+    <div>Contact Page - updating soon</div>
   )
 }
 export default EcomApp;

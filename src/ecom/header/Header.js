@@ -7,6 +7,7 @@ import CartDropdown from "../cart-dropdown/CartDropdown";
 import { connect } from "react-redux";
 import { showHideCart } from "../../redux/cart/cart-actions";
 import { cartItemsSelectorCount, showCartSelector } from "../../redux/cart/cart-selectors";
+import { createStructuredSelector } from "reselect";
 const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   // let [showCartDropdown, setShowCartDropdown] = useState(false);
   let { url } = useRouteMatch();
@@ -32,9 +33,9 @@ const Header = ({ showCartDropdown, setCartDropdown, itemCount }) => {
   );
 };
 
- const mapStateToProps = (state) => ({
-  showCartDropdown: showCartSelector(state),
-  itemCount: cartItemsSelectorCount(state),
+ const mapStateToProps = createStructuredSelector({
+  showCartDropdown: showCartSelector,
+  itemCount: cartItemsSelectorCount,
 });
 const mapDispatchToProps = (dispatch) => ({
   setCartDropdown: () => dispatch(showHideCart()),
