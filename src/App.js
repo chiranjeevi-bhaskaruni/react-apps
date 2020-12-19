@@ -24,6 +24,7 @@ export class App extends Component {
         })
       }
       setCurrentUser(userAuth);
+      /* addDataToFirebase("collections", collections.map(({ title, items}) => ({ title, items}))); */
     });
   }
   componentWillUnmount() {
@@ -56,8 +57,9 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+  /* collections: shopCollectionsPreviewSelector(state), */
 });
 const mapDispatcherToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))

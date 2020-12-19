@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { shopCollectionsPreviewSelector, shopCollectionsSelector, shopSelector } from "../../../redux/shop/shop-selector";
-import { CollectionPreview } from '../collection-preview/CollectionPreview';
+import { shopCollectionsPreviewSelector } from "../../../redux/shop/shop-selector";
+import CollectionPreview from '../collection-preview/CollectionPreview';
 
 const CollectionOverview = ({ collections }) => {
-  console.log(collections)
   return (
     <div className="CollectionsOverview">
       {collections.map(({ id, ...otherProps }) => (

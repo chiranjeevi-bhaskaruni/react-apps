@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Checkout from './checkout/Checkout';
-import CollectionsPage from './collections/CollectionsPage';
 import './EcomApp.scss';
 import Header from './header/Header';
 import Menu from './menu/Menu';
